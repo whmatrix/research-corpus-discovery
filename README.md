@@ -1,4 +1,8 @@
 > **Author:** John Mitchell (@whmatrix)
+> **Status:** ACTIVE
+> **Audience:** Researchers / Applied ML
+> **Environment:** GPU recommended (CPU fallback for queries)
+> **Fast Path:** `python scripts/build_index.py --help`
 
 # Semantic Search for Research Corpora
 
