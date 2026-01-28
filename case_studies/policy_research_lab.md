@@ -30,7 +30,7 @@ All 102 publications were indexed with the standard pipeline:
 
 ## Results
 
-10 queries were tested across the corpus. Average top-1 relevance score: **0.87**.
+10 queries were tested across the corpus. Mean top-1 cosine similarity: **0.87**.
 
 | Query | Top Score | Cross-Topic? |
 |-------|-----------|-------------|

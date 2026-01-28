@@ -93,4 +93,4 @@ The best 10 queries from across all tested corpora, selected to demonstrate diff
 | 0.75 - 0.80 | 10% |
 | < 0.75 | 5% |
 
-Average top-1 score across all queries and corpora: **0.85**
+Mean top-1 cosine similarity across all queries and corpora: **0.85**

@@ -182,9 +182,23 @@ The embedding model (`intfloat/e5-large-v2`), dimension (1024), and index type (
 
 ---
 
+## What You Get
+
+| Deliverable | Format | Guarantee |
+|-------------|--------|-----------|
+| Vector index | FAISS IndexFlatIP (exact cosine via L2-normalized inner product) | Deterministic, byte-reproducible |
+| Chunk corpus | JSONL with metadata | len(vectors) == len(chunks) == len(metadata) |
+| Audit summary | JSON manifest | Pass/fail quality gates per Universal Protocol v4.23 |
+
+**What this is not:** No human-judged relevance labels. No MRR/MAP/NDCG claims. Scores are cosine similarity (vector alignment), not precision or recall. Domain suitability requires independent evaluation.
+
+**Reproduce it:** `git clone https://github.com/whmatrix/semantic-indexing-batch-02 && cd semantic-indexing-batch-02/mini-index && pip install sentence-transformers faiss-cpu && python demo_query.py`
+
+---
+
 ## Non-Claims Statement
 
-This tool indexes and retrieves documents based on semantic similarity. It does not interpret, summarise, or evaluate the content it returns. No claims are made about document quality, correctness, or completeness. The tool is not intended to replace domain expertise or human review. Relevance scores reflect vector similarity, not factual accuracy.
+This tool indexes and retrieves documents based on semantic similarity. It does not interpret, summarise, or evaluate the content it returns. No claims are made about document quality, correctness, or completeness. The tool is not intended to replace domain expertise or human review. Similarity scores reflect vector alignment, not factual accuracy.
 
 ---
 

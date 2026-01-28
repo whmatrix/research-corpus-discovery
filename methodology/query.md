@@ -55,7 +55,7 @@ Each result maps back to the original chunk metadata:
 | 0.65 - 0.75 | Moderate match. Related topic but may not directly answer the query. |
 | < 0.65 | Weak match. Likely tangential or only keyword-adjacent. |
 
-Across 10 tested corpora, average top-1 scores ranged from 0.82 to 0.89. Scores below 0.70 for a top-1 result usually indicate the query topic is not well-represented in the corpus.
+Across 10 tested corpora, mean top-1 cosine similarity ranged from 0.82 to 0.89. Scores below 0.70 for a top-1 result usually indicate the query topic is not well-represented in the corpus.
 
 ## Query Design
 

@@ -25,4 +25,4 @@ All documents indexed were publicly available research publications downloaded f
 2. **Domain agnosticism** - Economics, migration, water policy, foreign policy, labor markets
 3. **Temporal depth** - Modern archives (10 years) and historical archives (125 years)
 4. **Cross-document discovery** - Queries that surface connections no keyword search can find
-5. **Consistent retrieval quality** - Average top-1 relevance scores of 0.82-0.89 across all corpora
+5. **Consistent retrieval quality** - Mean top-1 cosine similarity of 0.82-0.89 across all corpora

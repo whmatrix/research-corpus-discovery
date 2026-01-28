@@ -57,7 +57,7 @@ Aggregate statistics from semantic index builds across 10 research organizations
 
 ---
 
-## 3. Relevance Score Distributions
+## 3. Cosine Similarity Distributions
 
 Across all demo queries from all 10 organizations:
 
@@ -68,7 +68,7 @@ Across all demo queries from all 10 organizations:
 | 0.75 - 0.80 | 10% | Moderate match |
 | < 0.75 | 5% | Weak match |
 
-### Per-Organization Average Top-1 Scores
+### Per-Organization Mean Top-1 Scores
 
 | Organisation | Avg Top-1 Score | Queries Tested |
 |-------------|----------------|----------------|

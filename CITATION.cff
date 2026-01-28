@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "If you use this methodology in academic work, please cite as below."
 authors:
-  - family-names: "Matrix"
-    given-names: "Wade"
+  - family-names: "Mitchell"
+    given-names: "John"
 title: "Research Corpus Discovery: Semantic Search for Institutional Archives"
 version: 1.0.0
 date-released: 2026-01-27
