@@ -24,7 +24,6 @@ Output:
     └── index_report.json Build statistics and verification
 """
 
-import os
 import sys
 import json
 import re
