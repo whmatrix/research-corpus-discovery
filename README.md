@@ -87,6 +87,29 @@ See [case_studies/](case_studies/) for four detailed examples demonstrating cros
 
 ---
 
+## Evaluation Method
+
+The **0.85 average top-1 score** reported above is computed as follows:
+
+- **Corpus:** 4,600+ research documents across 10 institutions (~75,000 chunks)
+- **Metric:** Mean top-1 cosine similarity score across evaluation queries
+- **Evaluation set:** 50 sample queries constructed from known document topics, run against each institution's index
+- **Scoring:** For each query, the inner product score (cosine similarity on L2-normalized embeddings) of the top-1 retrieved chunk is recorded. The 0.85 figure is the mean across all evaluation queries and institutions.
+- **Embedding model:** intfloat/e5-large-v2 (1024-dim, FP16, L2-normalized)
+- **Index type:** FAISS IndexFlatIP (exact inner product search)
+
+**What this does NOT claim:**
+
+- Precision/recall on arbitrary user queries (no labeled relevance judgments were collected)
+- Performance on out-of-distribution topics or non-English text
+- Production latency guarantees beyond the measured < 100ms median
+- Ranking quality beyond the top-1 result
+- Generalization to corpora outside the tested 10 institutions
+
+The 0.85 score indicates that, on average, the top-1 retrieved chunk has high vector similarity to the query embedding. This reflects embedding alignment, not human-judged relevance. See [methodology/query.md](methodology/query.md) for score interpretation guidance and [results/benchmarks.md](results/benchmarks.md) for per-institution breakdowns.
+
+---
+
 ## Repository Structure
 
 ```
