@@ -89,24 +89,33 @@ See [case_studies/](case_studies/) for four detailed examples demonstrating cros
 
 ## Evaluation Method
 
-The **0.85 average top-1 score** reported above is computed as follows:
+### What the 0.85 Score Means
 
-- **Corpus:** 4,600+ research documents across 10 institutions (~75,000 chunks)
-- **Metric:** Mean top-1 cosine similarity score across evaluation queries
-- **Evaluation set:** 50 sample queries constructed from known document topics, run against each institution's index
-- **Scoring:** For each query, the inner product score (cosine similarity on L2-normalized embeddings) of the top-1 retrieved chunk is recorded. The 0.85 figure is the mean across all evaluation queries and institutions.
-- **Embedding model:** intfloat/e5-large-v2 (1024-dim, FP16, L2-normalized)
-- **Index type:** FAISS IndexFlatIP (exact inner product search)
+**Metric:** Mean top-1 inner product score (equivalent to cosine similarity on L2-normalized embeddings)
 
-**What this does NOT claim:**
+**How it was computed:**
+1. **Evaluation set:** 50 queries constructed from known document topics (e.g., querying a known paper title against the corpus containing that paper)
+2. **Procedure:** Each query was run against each institution's FAISS index. The inner product score of the rank-1 result was recorded.
+3. **Aggregation:** Mean across all queries and institutions = **0.85**
 
-- Precision/recall on arbitrary user queries (no labeled relevance judgments were collected)
-- Performance on out-of-distribution topics or non-English text
-- Production latency guarantees beyond the measured < 100ms median
-- Ranking quality beyond the top-1 result
-- Generalization to corpora outside the tested 10 institutions
+**Conditions:**
+| Parameter | Value |
+|-----------|-------|
+| Corpus | 4,600+ documents, 10 institutions, ~75,000 chunks |
+| Embedding model | intfloat/e5-large-v2 (1024-dim, FP16) |
+| Normalization | L2-normalized (so IP = cosine similarity) |
+| Index type | FAISS IndexFlatIP (exact search, no approximation) |
+| Score range | [0.0, 1.0] where 1.0 = identical embedding direction |
 
-The 0.85 score indicates that, on average, the top-1 retrieved chunk has high vector similarity to the query embedding. This reflects embedding alignment, not human-judged relevance. See [methodology/query.md](methodology/query.md) for score interpretation guidance and [results/benchmarks.md](results/benchmarks.md) for per-institution breakdowns.
+### What This Does NOT Claim
+
+- **Not human-judged relevance.** The 0.85 is a vector similarity score, not a precision or recall metric. No labeled relevance judgments were collected.
+- **Not MRR or MAP.** Those require binary relevance labels per result. This is a raw similarity score.
+- **Not out-of-distribution.** Evaluation queries were constructed from known topics within the corpus. Performance on novel queries is untested.
+- **Not cross-corpus.** Scores are meaningful within a single index. A 0.85 in a focused 45-document corpus is not comparable to 0.85 in a broad 1,621-document corpus.
+- **Not a threshold.** Scores are useful for ranking, not for binary "relevant/not-relevant" decisions.
+
+**Interpretation:** On average, the top-ranked chunk has an embedding that is 85% aligned with the query embedding. This indicates strong semantic retrieval within the indexed domain, but does not guarantee subjective relevance. See [methodology/query.md](methodology/query.md) for score interpretation and [results/benchmarks.md](results/benchmarks.md) for per-institution breakdowns.
 
 ---
 
