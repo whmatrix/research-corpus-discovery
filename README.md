@@ -10,7 +10,7 @@ Build FAISS-indexed semantic search over document archives using e5-large-v2 emb
 
 Given a directory of PDFs, this tool extracts text, chunks it into overlapping passages, generates 1024-dimensional dense vector embeddings, and builds a FAISS index for fast cosine similarity search. Natural-language queries return the most relevant passages ranked by semantic similarity.
 
-**Tested on 10 research institutions with 4,600+ documents.** Average top-1 relevance score: 0.85. Query latency: < 100ms.
+**Tested on 10 research institutions with 4,600+ documents.** Mean top-1 cosine similarity: 0.85. Query latency: < 100ms.
 
 ---
 
@@ -79,7 +79,7 @@ This pipeline was tested on 10 policy and economics research organizations:
 | Corpora range | 45 - 1,621 documents |
 | Time span | 1900 - 2025 |
 | Domains | Economics, policy, migration, labor, environment, foreign policy |
-| Average top-1 score | 0.85 |
+| Mean top-1 cosine similarity | 0.85 |
 | Build time (8,000 chunks) | < 1 minute |
 | Query latency | < 100ms |
 
