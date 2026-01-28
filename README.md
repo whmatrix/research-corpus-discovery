@@ -147,3 +147,13 @@ The embedding model (`intfloat/e5-large-v2`), dimension (1024), and index type (
 ## Non-Claims Statement
 
 This tool indexes and retrieves documents based on semantic similarity. It does not interpret, summarise, or evaluate the content it returns. No claims are made about document quality, correctness, or completeness. The tool is not intended to replace domain expertise or human review. Relevance scores reflect vector similarity, not factual accuracy.
+
+---
+
+## Related Repositories
+
+| Repository | Description |
+|------------|-------------|
+| [semantic-indexing-batch-02](https://github.com/whmatrix/semantic-indexing-batch-02) | Production indexing: 8.35M vectors across Wikipedia, ArXiv, StackExchange |
+| [universal-protocol-v4.23](https://github.com/whmatrix/universal-protocol-v4.23) | Protocol specification for RAG deliverables and audit contracts |
+| [whmatrix](https://github.com/whmatrix/whmatrix) | Portfolio hub and routing |
