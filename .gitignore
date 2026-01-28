@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large files (binary indices, PDFs)
+*.faiss
+*.npy
+*.pkl
+data/
+pdfs/
+
+# Logs
+*.log
