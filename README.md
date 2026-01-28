@@ -1,3 +1,5 @@
+> **Author:** John Mitchell (@whmatrix)
+
 # Semantic Search for Research Corpora
 
 Build FAISS-indexed semantic search over document archives using e5-large-v2 embeddings.
